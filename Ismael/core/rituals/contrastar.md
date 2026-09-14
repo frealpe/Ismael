@@ -1,0 +1,267 @@
+<!-- Ritual del kit Ismael. Se lee BAJO DEMANDA: `SKILL.md` enruta y no repite este contenido.
+     Si cambias una regla de aquí, comprueba si `SKILL.md` la resume en su tabla de rituales. -->
+
+# Ritual: CONTRASTAR (recibir un informe externo sobre tu trabajo)
+
+**Cuándo.** Llega de fuera un informe sobre lo que este proyecto produce: la revisión de un director
+de tesis, los resultados de un laboratorio socio, la evaluación de un curso, el reporte de otro equipo
+que usa tu producto. Llega **fuera de banda** —no al abrir ni al cerrar— y procesarlo cuesta, así que
+**se invoca**, como auditar.
+
+**Por qué no lo cubre ningún otro ritual.** Los seis que no son de correspondencia miran hacia
+dentro: escriben la documentación, mantienen el marco, o re-verifican lo ya escrito. REMITIR, el
+otro de esta pareja, sí mira hacia fuera —pero es la **salida**—. Ninguno maneja una **entrada de
+fuera**. Es la vía de mayor consecuencia que tiene un proyecto —lo que entra por aquí se incorpora
+al producto y viaja a todos— y es la única que no tenía procedimiento.
+
+<!-- Aqui habia un ordinal ("el septimo, REMITIR") y se ha retirado, no corregido. La frase original
+     decia "el octavo"; el arreglo de la sesion 173 lo cambio a "septimo" contando por ORDEN DE
+     CREACION, que es un tercer orden distinto del de guide.md (donde CONTRASTAR es el septimo y
+     REMITIR el octavo) y del de "los otros siete". Lo caza un adoptante un commit despues. Con
+     tres ordenes posibles, cualquier ordinal exige declarar cual se usa; el enunciado por
+     categoria no lo necesita. Ver verificar.md -> "Cuando dos documentos cuentan la misma lista
+     distinto". -->
+
+## Lo mínimo para ejecutarlo
+
+**Antes de leerla con atención:** ¿es un **informe externo**? Hace falta un **caso** —algo que pasó en un
+terreno real—. Una idea, una preferencia o una petición de funcionalidad **no lo son**.
+
+**Fase 0, la que se salta y sale cara:**
+
+- **¿Ya llegó?** Búscala por un **token distintivo** —un número raro, un comando literal—, **nunca por
+  su número de carta**: cada proyecto numera el suyo. **Y elige el token con cuidado: un número corto
+  no es distintivo** sobre un corpus lleno de identificadores — `558` casa dentro de `2558b69`.
+  **Si todavía no tienes serie propia, esta regla no la puedes cumplir, y eso no es culpa tuya: es
+  que el rol `correspondence` está apagado.** Mientras no lo actives, el único número disponible es el
+  del corresponsal, y **acabarás numerando en su serie sin decidirlo** — le pasó a un adoptante
+  durante tres cartas, y lo notó él. Al activarlo, el índice lleva **las dos** columnas: la tuya y la
+  suya, porque lo ya entregado dice *"Carta N"* en su título y eso no se reescribe. **La asimetría no
+  es de almacenamiento, es de referencia:** quien tiene índice se lo impone al que no, sin
+  proponérselo. Si aparece, **diffea**: idéntica = ya procesada,
+  párate; distinta = procesa **el delta**.
+- **¿Está al día el estado de la tuya?** Si esta carta responde a una tuya, la tuya tiene que figurar
+  **entregada**. Y ese estado se lee **de la COLUMNA**, partiendo por `|` y anclando al principio —
+  **nunca buscando la palabra en la fila**, cuya prosa menciona estados de otras cartas.
+- **Y esa lectura lleva control positivo**, como cualquier detector: una fila que sabes entregada tiene
+  que leerse entregada. Sin él, la sonda no mide nada.
+- **Y su otra mitad, que es de ESCRITURA y faltaba: el estado vigente va al PRINCIPIO de la celda.**
+  Una regla de lectura sin su regla de escritura correspondiente se cumple hasta que alguien escribe
+  de otra forma, y entonces la lectura devuelve un estado caducado **sin fallar**. El desenlace de una
+  carta se edita varias veces —redactada, publicada, revisada, entregada— y el impulso es **anteponer
+  lo último que pasó**, con lo que el historial crece por delante y el estado se hunde. Caso propio,
+  cazado por el control de lectura y no por la relectura: una fila empezaba por *"REDACTADA… y
+  REVISADA…"* con el `ENTREGADA` a mitad del campo, y la sonda anclada devolvía *redactada* sobre una
+  carta ya entregada. **Lo que va delante es el estado; el relato de cómo se llegó a él va detrás.**
+- **Y el índice se cuenta con un invariante, no con un patrón:** el **número de cartas** tiene que
+  coincidir con el **último número de carta**. Ese fichero puede llevar más de una tabla numerada —los
+  desacuerdos, por ejemplo— y entonces contar filas por patrón da de más **sin dar error**. Ocurrió a
+  dos proyectos el mismo día, con instrumentos distintos, sobre el mismo archivo: `126` donde había
+  `123`. La ley y el caso, en `{{kit}}/core/reference/verificar.md` → *Cuando un fichero admite dos
+  lecturas por patrón, el control es un invariante y no un patrón mejor*.
+
+**Después, en orden:**
+
+1. **Clasificar** cada afirmación en tres, porque no se tratan igual: **sobre tu trabajo** (se verifican
+   **todas**, con `archivo:línea`), **sobre el proyecto que reporta** (bajo palabra, y **se marcan como
+   tales**), y **propuestas** (no se verifican: se deciden, al final).
+2. **Verificar** las de la primera clase, una a una. Un aporte apoyado en una afirmación falsa sobre tu
+   producto **se cae entero**, por bien argumentado que esté.
+3. **Si la carta compara una TASA suya con una tuya, desglósala por tramos antes de discutirla.** Es
+   *Una tasa mide también la EDAD de su corpus, y dos tasas no se comparan por el denominador*: dos
+   archivos de distinta longitud dan cifras distintas para **la misma práctica**, porque el más largo
+   arrastra la época en que la práctica no existía. **Medido aquí: 27% global contra 38% en el último
+   tramo, frente a un 50% ajeno** — la lectura cambia de *"ellos lo hacen el doble"* a *"la brecha
+   se reduce a la mitad"*, con los mismos números. **Reducirse no es desaparecer**: el resto es
+   práctica de verdad, y confundir las dos cosas fue el error que produjo esta ley.
+4. **Separar diagnóstico de remedio, y volver a derivar el remedio desde tu diseño.** El diagnóstico
+   viaja; el remedio no, porque **el medio decide qué remedios existen**.
+5. **Nombrar lo que el caso NO valida.** Cuesta un párrafo y es la fase que más ha rendido.
+6. **Aplicar** — y **aplicar no siempre es hoy**: el día del hallazgo es el peor día para tocar el sitio
+   donde vive. Lo que **no** se aplaza es escribir el diagnóstico.
+7. **Archivar, responder y registrar, en ese orden.** La fila va **después** de responder, porque su
+   existencia implica que el circuito se cerró.
+
+**Las cuatro que se saltan:**
+
+| Situación | La regla |
+| --- | --- |
+| Lo que dice **quien trae la carta** (*"esto viene de tal proyecto"*) | Es **una afirmación más**, de la segunda clase. Se marca, y no se construye diseño encima |
+| Algo chirría y se explica porque **el cartero se saltó un paso** | **No es un hallazgo: es ruido del canal.** No se mete en el kit |
+| La cabecera de la carta archivada | **No lleva estado.** Se escribe lo que no cambia, y lo que sí, en pasado y con su fecha |
+| No tienes nada que devolver | **"No aplica" es una respuesta completa.** Fabricar un hallazgo simétrico es peor que el silencio |
+
+**Dónde está el resto.** Se abre por **pregunta**, nunca entero:
+
+| Si te preguntas… | Sección |
+| --- | --- |
+| ¿Por qué no aplico su remedio tal cual? | *La regla central: el diagnóstico viaja, el remedio no* |
+| ¿Esta afirmación de qué clase es? | *Tres clases de afirmación* |
+| ¿Por qué la cabecera no lleva estado? | *La cabecera de una carta archivada no lleva estado* |
+| ¿Tengo que contestar? ¿Y si no tengo nada? | *Responder es una fase, no cortesía* |
+| ¿Esto es un informe o una petición? | *Qué NO es un informe externo* |
+
+## La regla central: el diagnóstico viaja, el remedio no
+
+Quien reporta tiene el **caso** —lo que pasó de verdad en su terreno, que tú no puedes ver—. Tú tienes
+el **contexto de diseño** —por qué las piezas son como son, que él no puede ver—. Un informe llega
+como prosa terminada con las dos cosas pegadas, y la parte sólida presta credibilidad a la otra.
+
+**Acepta el diagnóstico por sus méritos y vuelve a derivar el remedio desde tu propio diseño.** No es
+desconfianza: es que cada uno tiene la mitad que al otro le falta. Es el mismo movimiento que la
+cautela 0 de AUDITAR — no te fíes del recorte, vuelve a la fuente.
+
+**Y hay una razón por debajo, más concreta que *cada uno tiene su mitad*: el medio decide qué remedios
+existen.** Un mismo diagnóstico —*este dato tiene dos hogares*— admite remedios distintos según de qué
+esté hecho tu producto. Si es **código**, puedes generar un hogar desde el otro. Si es **prosa**, no
+puedes generar nada, pero **puedes borrar**. Y si el sitio duplicado es la portada que lee todo el que
+llega, no puedes borrar sin empeorar el producto, y lo que queda es **detectar**: una prueba que impide
+*publicar* la divergencia, asumiendo que los dos hogares siguen ahí.
+
+Caso de campo, con los dos lados a la vez: un proyecto de código y otro de documentación recibieron el
+mismo diagnóstico y salieron con remedios opuestos —**borrar** y **detectar**—, y los dos correctos.
+Lo que lo hace instructivo es que **ninguno de los dos podía haber elegido el del otro.** Por eso el
+remedio no viaja: no es que sea menos fiable que el diagnóstico, es que **está atado a un material que
+quien reporta no tiene**.
+
+## Tres clases de afirmación, y no se tratan igual
+
+- **Sobre tu trabajo** — verificables aquí, y se verifican **todas** antes de aceptar nada. Un aporte
+  apoyado en una afirmación falsa sobre tu producto se cae entero por bien argumentado que esté.
+  Evidencia con `archivo:línea`, como en AUDITAR.
+- **Sobre el proyecto que reporta** — no verificables desde aquí, nunca. Se toman **bajo palabra** y
+  se **marcan como tales** al registrarlas. Está bien apoyarse en ellas; lo que no vale es olvidar que
+  no se comprobaron.
+- **Propuestas** — no son afirmaciones y no se verifican: se **deciden**, al final y por separado.
+
+**Y clasifica también lo que dice quien trae la carta.** Un informe casi nunca llega desnudo: llega
+con un marco alrededor —*"esto viene de tal proyecto"*, *"esto salió del razonamiento del agente"*,
+*"me lo pasaron sin contexto"*—, y **ese marco es una afirmación más**, de la segunda clase: habla de
+un terreno que no puedes ver. Tómala bajo palabra si quieres, pero **márcala**, y sobre todo no
+construyas una conclusión de diseño encima sin decir en qué se apoya.
+
+Ocurrió: se dio por bueno que una observación venía del razonamiento interno de un agente ajeno —lo
+dijo el cartero, de buena fe— y se levantó sobre eso una hipótesis. Al comprobarlo, la observación
+estaba **commiteada en un archivo** del otro proyecto: visible desde cualquier sitio. La hipótesis
+sobrevivió por otras razones, pero **su ejemplo la contradecía**.
+
+**Y esto alcanza al archivo, no solo a la sesión en que llega: se archiva la carta, no el sobre.**
+Marcarla te protege hoy; el archivo es donde el dato se releerá dentro de meses, ya sin nadie que
+recuerde de dónde salió. Una atribución que venga en el sobre entra **marcada como no verificada**, o
+no entra — nunca puede acabar leyéndose como si viniera firmada.
+
+**Y de ahí sale la regla que gobierna qué puede convertirse en cambio del kit:**
+
+> **No se meten errores humanos en el kit.** Antes de que un hallazgo se vuelva regla, separa un
+> defecto **del trabajo** de un defecto **de la entrega**. Si lo que chirría se explica porque el
+> cartero se saltó un paso, cortó una carta o la trajo sin contexto, **eso no es un hallazgo sobre el
+> otro proyecto**: es ruido del canal, y endurecer el kit contra él lo empeora para todos.
+
+El caso: dos hallazgos sobre la correspondencia ajena parecían apuntar a un defecto de método, y se
+disolvieron al notar que **las guardas del ritual no se habían corrido** en esa entrega. El defecto
+era del transporte. **Quien lo paró fue el humano que hacía de cartero, señalándose a sí mismo** — que
+es la única posición desde la que se ve, porque desde el texto los dos defectos se leen igual.
+
+**El coste asimétrico es lo que hace la regla obligatoria y no prudente:** una regla nacida de un
+error de canal **viaja a cada adoptante**, y allí no hay cartero ninguno al que corregir.
+
+## Lo que cada fase esconde
+
+**Las fases están arriba y no se repiten aquí.** Esto es lo que el imperativo no cabe decir: los
+casos que produjeron cada regla.
+
+**Fase 0, el reenvío.** Con cartero humano el reenvío es normal —se pega dos veces, se pega una vieja
+creyéndola nueva, se reenvía tras una interrupción— y no detectarlo sale caro: reprocesas, **reaplicas
+hallazgos ya aplicados**, escribes una fila duplicada y, en el peor caso, "descubres" lo mismo dos veces
+y lo registras como nuevo. Y se busca por token y no por frase porque los docs llevan ajuste de línea y
+una oración puede partirse en dos.
+
+**Fase 0, el estado leído de la columna.** Una fila lleva prosa, y su prosa menciona estados de otras
+cartas: un `grep` de la palabra sobre la fila entera devuelve el estado equivocado sin avisar. **Pasó en
+los dos sentidos en el mismo proyecto** — una entrante contada como `redactada` porque su resumen decía
+*"llegó marcada como redactada"*, y después una saliente contada como entregada porque el suyo
+mencionaba *"la carta ya entregada"*. **El aviso de la primera estaba escrito dos líneas más arriba y no
+evitó la segunda, porque describía el caso y no el remedio.**
+
+Si dice `redactada`, uno de los dos registros está mal — resuélvelo antes de seguir. Los dos estados
+**crean** la contradicción, pero no la miran solas: la primera vez la vio el usuario preguntando, y la
+segunda pasó desapercibida **en el mismo material que se estaba archivando**. Una señal que nadie
+comprueba no es una señal.
+
+**Y por qué el control positivo de esa lectura está escrito arriba y no aquí:** este ritual describió
+durante **siete sesiones** *cómo* leer el estado —de la columna, anclando al principio— **sin pedir el
+control**, y en esas siete se corrió cada vez sin ponérselo, mientras se le ponía a todo lo demás. Lo
+preguntó el corresponsal; no lo vio nadie de aquí. **Una comprobación que se describe pero no se exige
+acaba siendo la única sin control**, precisamente porque parece demasiado simple para necesitarlo.
+
+**Fase 5, aplazar.** Formulación de un corresponsal, con dos casos y uno de cada lado. Aquí: se midió
+que un ritual costaba 1,44 sesiones y se decidió **no** escribirle tres reglas más esa misma tarde.
+Allí: encontraron un agujero en un tipo del núcleo de su herramienta y **no lo cambiaron el mismo día**.
+Los dos aplazaron **con el diagnóstico escrito y publicado**, que es lo que separa esto de dejarlo para
+nunca. **La razón no es prudencia genérica: el hallazgo llega con su prisa puesta**, y el sitio donde
+vive suele ser el que más cuesta deshacer.
+
+**Fase 6, archivar.** La carta recibida se guarda como `letter` **si la contestaste o te movió a hacer
+algo** — la copia del remitente puede desaparecer y entonces la tuya es la única. La respuesta dice
+**qué entró, qué no y por qué**, y qué sigue sin poder responderse.
+
+### La cabecera de una carta archivada no lleva estado
+
+**Escribe en ella lo que no cambia** —de quién viene, su numeración, qué comprobaste al recibirla, qué
+te llamó la atención— y **nada que vaya a caducar**. El estado del intercambio vive en la fila de
+`correspondence`, que es su único hogar, y allí se mueve al procesarla.
+
+**Porque una marca de estado en la cabecera de un fichero archivado no la mueve nadie.** El momento en
+que deja de ser cierta no tiene ningún paso asociado: la carta ya está guardada y no se vuelve a abrir.
+**Caso de campo: 21 cartas marcadas *"archivada sin procesar"*, todas procesadas, algunas sesiones
+atrás** — mientras las salientes del mismo archivo, cuyo estado vive en la **columna** del índice,
+estaban al día. **La asimetría es la prueba:** el lado con un solo hogar no derivó; el que tenía dos,
+derivó entero.
+
+**Y el arreglo no es añadir un paso que mueva la marca: es quitar el segundo hogar.** Mover una marca
+en N ficheros es un remedio **O(n) que hay que mantener**, y por su forma eso no es un arreglo — crece
+con cada carta y se pudre. Quitar el hogar duplicado cuesta **O(1)** y no deja nada que mantener. Es la
+misma ley que hace que se marque *la puerta* y no cada afirmación (AUDITAR).
+
+> **Un dato que caduca solo puede vivir donde algo lo mueva.** Si vas a escribirlo en un sitio donde
+> nada lo mueve, **no es un estado: es una foto**, y entonces se escribe con su fecha y en pasado —
+> *"al archivarla, tal cosa estaba sin comprobar"*— que no caduca porque no pretende ser el presente.
+
+## Responder es una fase, no cortesía
+
+Es lo primero que se degrada, porque el trabajo ya está hecho y la respuesta no le urge a nadie. Pero
+**un ritual que solo ingiere convierte a quien reporta en QA gratis**, y esa fuente se seca. Y hay algo
+que solo tú puedes darle: **en qué no se aceptó su propuesta y por qué**. Eso es lo que hace que el
+siguiente informe venga mejor calibrado — y es información que él no tiene forma de deducir.
+
+**Y tiene un gemelo oscuro, que solo aparece cuando el intercambio ya lleva tiempo: responder de
+MÁS.** Pasadas unas cuantas cartas, devolver un hallazgo deja de ser un aporte y se vuelve una
+**obligación social** — el otro te dio algo, y no dar nada se siente como no haber trabajado. Ahí es
+donde se **fabrica un hallazgo simétrico**: se busca en tu terreno el equivalente de lo que él
+encontró en el suyo, y lo que sale es ruido con forma de reciprocidad. Es peor que el silencio,
+porque viene avalado por todo lo que sí era bueno en la misma carta.
+
+**"No aplica" es una respuesta completa, y decirlo vale más que inventar el espejo.** Le dice al otro
+algo real —que su hallazgo es específico de su terreno, cosa que él no puede saber— y protege lo único
+que hace útil el canal: que un hallazgo signifique algo. La frontera de REMITIR —*si no hay caso, no
+hay carta*— es la misma regla; lo que cambia aquí es de dónde viene la presión: no de tener una idea
+suelta, sino de **deberle algo a alguien**.
+
+Lo formuló un corresponsal ejerciéndolo, que es la única forma en que esto se puede decir con
+autoridad: escribió *"preferimos decir «no aplica» a inventar un hallazgo simétrico"* **en la misma
+carta en la que podría haberlo inventado**.
+
+Por eso **la fila se escribe después de responder**: su existencia implica que el circuito se cerró. Y
+como la numeración de `letter` no distingue dirección, **una carta que entra sin una que salga detrás
+es una conversación abierta**, visible sin llevar ninguna lista aparte. Una respuesta redactada y sin
+enviar es un pendiente de `state` **que apunta aquí** — no una columna más, y tampoco el estado copiado
+en dos sitios: el índice dice cuál y en qué estado, y el `state` solo dice que hay que mirarlo. Copiarlo
+crea la lista aparte que la frase anterior acaba de declarar innecesaria, y **esa copia es la que se
+queda vieja**: caso de campo, cuatro sesiones anunciando una carta que ya había sido contestada.
+
+## Qué NO es un informe externo
+
+Que la petición venga acompañada de un **caso**: algo que pasó en un terreno real. Una idea, una
+preferencia o una petición de funcionalidad —vengan de quien vengan— no son esto: se tratan como
+cualquier otro cambio, sin ritual. Sin esta frontera, CONTRASTAR se convierte en la puerta de entrada
+de todo y deja de proteger nada.

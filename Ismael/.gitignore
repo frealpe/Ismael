@@ -1,0 +1,39 @@
+# Instancia local de stele (dogfood del propio marco).
+#
+# Por que ignorada y no commiteada: este repo se distribuye COPIANDOSE
+# (`npx degit emezav/stele .stele` se lleva el arbol entero), asi que todo lo
+# versionado aqui viaja al .stele/ de cada persona que adopte el marco. El
+# historial de sesiones de este proyecto seria peso muerto creciente en la
+# copia vendorizada de todos los demas.
+#
+# Coste aceptado: la continuidad no viaja al clonar este repo en otra maquina.
+# Si hace falta portabilidad, `stele/` puede ser a su vez un repo git propio
+# con su remoto privado.
+#
+# RESPALDO: ninguno -- el disco local de esta maquina es el unico registro.
+# Declarado en la sesion 143, nueve despues de que el kit lo exigiera: el
+# comentario de arriba CONTESTABA la pregunta en condicional ("puede ser") y
+# eso no es una declaracion. El detector tenia razon y nadie lo habia corrido
+# contra este repo.
+stele/
+
+# Anclas de la raiz: son derivados que apuntan a `stele/`. Si se commitearan,
+# cada adoptante recibiria un loader y un manifiesto que referencian un
+# directorio que en su copia no existe.
+stele.config.md
+CLAUDE.md
+
+# Borradores y entregas temporales (notas a otros proyectos, scratch de trabajo).
+# Misma razon que arriba: nada de esto lo necesita un agente que adopta el marco,
+# y aqui todo lo versionado en la raiz viaja en la copia.
+tmp/
+
+# Configuracion local de la herramienta que ejecuta al agente. Es de esta
+# maquina y de esta persona, no del marco: si viajara, cada adoptante
+# heredaria ajustes que no eligio. Misma razon que todo lo de arriba.
+.claude/
+/AGENTS.md
+
+# Volcados de MSYS/Cygwin: los deja un binario al abortar (p.ej. `grep -iF`).
+# Son de esta maquina y no deben viajar al adoptante.
+*.stackdump
